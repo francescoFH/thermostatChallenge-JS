@@ -9,11 +9,17 @@ describe('Thermostat', function(){
     expect(thermostat.getCurrentTemperature()).toEqual(20);
   });
   it('increase the temperature with an up function', function() {
-    thermostat.up()
+    thermostat.up();
     expect(thermostat.getCurrentTemperature()).toEqual(21);
   });
   it('decrease the temperature with an down function', function() {
-    thermostat.down()
+    thermostat.down();
     expect(thermostat.getCurrentTemperature()).toEqual(19);
+  });
+  it('has a minimum temperature of 10 degrees', function(){
+    for (var i = 0; i < 11; i++) {
+      thermostat.down()
+    };
+  expect(thermostat.getCurrentTemperature()).toEqual(10);
   });
 });
