@@ -22,4 +22,10 @@ describe('Thermostat', function(){
     };
   expect(thermostat.getCurrentTemperature()).toEqual(10);
   });
+  it('has maximum temperature of 25 degrees when power saving is on', function(){
+    for (var i = 0; i < 6; i++) {
+      thermostat.up()
+    };
+    expect(thermostat.getCurrentTemperature()).toEqual(25);
+  });
 });
