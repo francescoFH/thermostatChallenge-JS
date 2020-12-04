@@ -12,7 +12,7 @@ describe('Thermostat', function(){
     thermostat.up();
     expect(thermostat.getCurrentTemperature()).toEqual(21);
   });
-  it('decrease the temperature with an down function', function() {
+  it('decrease the temperature with a down function', function() {
     thermostat.down();
     expect(thermostat.getCurrentTemperature()).toEqual(19);
   });
@@ -22,25 +22,27 @@ describe('Thermostat', function(){
     };
   expect(thermostat.getCurrentTemperature()).toEqual(10);
   });
-  it('has power saving on by default', function(){
+  it('has power saving on by default', function() {
     expect(thermostat.isPowerSavingOn()).toBe(true);
   });
   describe('when power saving is on', function() {
-    it('has maximum temperature of 25 degrees', function(){
+    it('has maximum temperature of 25 degrees', function() {
       for (var i = 0; i < 6; i++) {
         thermostat.up()
       };
       expect(thermostat.getCurrentTemperature()).toEqual(25);
     });
   });
-  it('has maximum temperature of 32 degrees when power saving is off', function(){
-    thermostat.switchPowerSavingOff();
-    for (var i = 0; i < 13; i++) {
-      thermostat.up()
-    };
-    expect(thermostat.getCurrentTemperature()).toEqual(32);
+  describe('when power saving is off', function() {
+    it('has maximum temperature of 32 degrees', function() {
+      thermostat.switchPowerSavingOff();
+      for (var i = 0; i < 13; i++) {
+        thermostat.up()
+      };
+      expect(thermostat.getCurrentTemperature()).toEqual(32);
+    });
   });
-  it('can switch power saving off', function(){
+  it('can switch power saving off', function() {
     thermostat.switchPowerSavingOff();
     expect(thermostat.isPowerSavingOn()).toBe(false);
   });
@@ -49,5 +51,12 @@ describe('Thermostat', function(){
     expect(thermostat.isPowerSavingOn()).toBe(false);
     thermostat.switchPowerSavingOn();
     expect(thermostat.isPowerSavingOn()).toBe(true);
+  });
+  it('can be reset to default temperature', function() {
+    for (var i = 0; i < 6; i++) {
+      thermostat.up()
+    }
+    thermostat.resetTemperature();
+    expect(thermostat.getCurrentTemperature()).toEqual(20)
   });
 });

@@ -5,7 +5,8 @@ class Thermostat{
     this.MINIMUM_TEMPERATURE = 10;
     this.POWERSAVING_MAX_TEMPERATURE = 25;
     this.MAX_TEMPERATURE = 32;
-    this.temperature = 20;
+    this.DEFAULT_TEMPERATURE = 20;
+    this.temperature = this.DEFAULT_TEMPERATURE;
     this.powerSaving = true;
   };
   getCurrentTemperature() {
@@ -41,6 +42,9 @@ class Thermostat{
     };
     this.temperature --;
   };
+  resetTemperature() {
+    this.temperature = this.DEFAULT_TEMPERATURE;
+  }
 };
 
 // this.maximumTemperature = this.powerSaving ? this.POWERSAVING_MAX_TEMPERATURE : this.MAX_TEMPERATURE; 
