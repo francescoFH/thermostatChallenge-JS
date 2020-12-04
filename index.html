@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="./public/style.css"/>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,7 +10,14 @@
   </head>
   <body>
     <section>
-      <h1 id="temperature"></h1>
+      <h1>Current temperature: <span id="current-temperature"></span>°C</h1>
+      <form id="select-city">
+        <input id="current-city" type="text" placeholder="Enter a city"></input>
+        <input type="submit"></input>
+      </form>
+    </section>
+    <section>
+      <h1> <span id="temperature"></span>°C</h1>
       <p>
         <button id="temperature-up">+</button>
         <button id="temperature-down">-</button>
@@ -19,4 +28,8 @@
       </p>
     </section>
   </body>
+
+  <footer class="footer">
+    Fran Thermostat | Makers 2020
+  </footer>
 </html>
