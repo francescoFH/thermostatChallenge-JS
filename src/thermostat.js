@@ -14,6 +14,13 @@ class Thermostat{
   getCurrentTemperature() {
     return this.temperature;
   };
+
+  powerSavingStatus() {
+    if (this.powerSaving === true) {
+      return "ON";
+    };
+    return "OFF";
+  };
   isMinimumTemperature() {
     return this.temperature === this.MINIMUM_TEMPERATURE;
   };
@@ -31,6 +38,10 @@ class Thermostat{
   };
   switchPowerSavingOn() {
     this.powerSaving = true;
+
+    if (this.temperature > this.POWERSAVING_MAX_TEMPERATURE) {
+      this.temperature = this.POWERSAVING_MAX_TEMPERATURE
+    };
   };
   up() {
     if(this.isMaximumTemperature()) {
