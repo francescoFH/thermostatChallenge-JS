@@ -5,6 +5,8 @@ class Thermostat{
     this.MINIMUM_TEMPERATURE = 10;
     this.POWERSAVING_MAX_TEMPERATURE = 25;
     this.MAX_TEMPERATURE = 32;
+    this.MEDIUM_ENERGY_USAGE = 18;
+    this.HIGH_ENERGY_USAGE = 25;
     this.DEFAULT_TEMPERATURE = 20;
     this.temperature = this.DEFAULT_TEMPERATURE;
     this.powerSaving = true;
@@ -44,7 +46,16 @@ class Thermostat{
   };
   resetTemperature() {
     this.temperature = this.DEFAULT_TEMPERATURE;
-  }
+  };
+  energyUsage() {
+    if (this.temperature < this.MEDIUM_ENERGY_USAGE) {
+      return 'low-usage';
+    };
+    if (this.temperature <= this.HIGH_ENERGY_USAGE) {
+      return 'medium-usage';
+    };
+    return 'high-usage';
+  };
 };
 
 // this.maximumTemperature = this.powerSaving ? this.POWERSAVING_MAX_TEMPERATURE : this.MAX_TEMPERATURE; 
