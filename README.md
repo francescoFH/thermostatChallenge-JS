@@ -1,8 +1,8 @@
 Thermostat Challenge - JS
 =========================
 In this challenge, I have:
-- builded the logic needed to model a simple thermostat
-- builded the skeleton of a UI, to interact with my underlying logic
+- built the logic needed to model a simple thermostat
+- built the skeleton of a UI, to interact with my underlying logic
 - manipulated the Document Object Model (DOM) using JavaScript and jQuery
 - added a feature to display the weather in a city selected by the user
 
