@@ -1,36 +1,32 @@
 $(document).ready(function() {
-
   var thermostat = new Thermostat();
+  updateTemperature();
 
-  $('#temperature').text(thermostat.temperature);
-
-  $('#temperature-up').on('click', function() {
+  $('#temperature-up').click(function() {
     thermostat.up();
-    $('#temperature').text(thermostat.temperature);
+    updateTemperature();
   });
 
-  $('#temperature-down').on('click', function() {
+  $('#temperature-down').click(function() {
     thermostat.down();
-    $('#temperature').text(thermostat.temperature);
+    updateTemperature();
   });
 
-  $('#temperature-reset').on('click', function() {
+  $('#temperature-reset').click(function() {
     thermostat.resetTemperature();
-    $('#temperature').text(thermostat.temperature);
-  })
+    updateTemperature();
+  });
 
-  $('#power-saving-status').text(thermostat.powerSavingStatus());
-
-  $('#powersaving-on').on('click', function() {
+  $('#powersaving-on').click(function() {
     thermostat.switchPowerSavingOn();
-    $('#temperature').text(thermostat.temperature);
-    $('#power-saving-status').text(thermostat.powerSavingStatus());
+    $('#power-saving-status').text('ON')
+    updateTemperature();
   });
 
 
-  $('#powersaving-off').on('click', function() {
+  $('#powersaving-off').click(function() {
     thermostat.switchPowerSavingOff();
-    $('#power-saving-status').text(thermostat.powerSavingStatus());
+    $('#power-saving-status').text('OFF');
   });
 
   $('#select-city').submit(function(event) {
@@ -40,4 +36,8 @@ $(document).ready(function() {
       $('#current-temperature').text(data.main.temp);
     });
   });
+
+  function updateTemperature(){
+    $('#temperature').text(thermostat.temperature);
+  };
 });
